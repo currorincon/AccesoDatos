@@ -1,4 +1,4 @@
-package xmlFiles;
+package modulo2XML;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
