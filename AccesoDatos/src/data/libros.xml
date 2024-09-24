@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<libros>
+    <libro>
+        <titulo>Aprendiendo Java</titulo>
+        <autor>Juan Pérez</autor>
+        <año>2023</año>
+    </libro>
+    <libro>
+        <titulo>Programación en Python</titulo>
+        <autor>Ana García</autor>
+        <año>2022</año>
+    </libro>
+</libros>
