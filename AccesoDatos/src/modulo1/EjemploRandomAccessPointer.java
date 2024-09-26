@@ -3,7 +3,7 @@ package modulo1;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 
-public class EjemploGetFilePointer {
+public class EjemploRandomAccessPointer {
     public static void main(String[] args) {
         String nombreArchivo = "archivo_ejemplo.txt";
 

@@ -8,6 +8,8 @@ public class CopiarImagenBinario {
         // Obtenemos la ruta del proyecto
         String rutaProyecto = System.getProperty("user.dir");
 
+       System.out.println(rutaProyecto);
+        
         // Ruta de la imagen original dentro de la carpeta 'src'
         String rutaImagenOriginal = rutaProyecto + "/src/data/grancapitan.jpg";
 
