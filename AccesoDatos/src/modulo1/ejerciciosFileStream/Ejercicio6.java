@@ -1,4 +1,4 @@
-package modulo1.ejerciciosFileStream;
+	package modulo1.ejerciciosFileStream;
 
 import java.io.FileOutputStream;
 import java.io.FileInputStream;

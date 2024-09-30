@@ -9,7 +9,7 @@ public class EjemploSencillo {
 		System.out.println("Ejemplo de guardar y leer en archivo");
 		
 		try {
-			FileOutputStream fos = new FileOutputStream ("src/data/textoSencillo.bin");
+			FileOutputStream fos = new FileOutputStream ("src/data/copiatextoSencillo.bin");
 			
 		
 			char letra = 'a';
