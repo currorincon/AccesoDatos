@@ -2,7 +2,7 @@ package modulo1;
 
 import java.io.*;
 
-public class CopiarImagenBinario {
+public class CopiarImagenBinarioBuffer {
 	
 	public static void main(String[] args) {
         // Obtenemos la ruta del proyecto
@@ -18,11 +18,39 @@ public class CopiarImagenBinario {
 
         // Llamamos al método para copiar la imagen en binario
         copiarImagenBinario(rutaImagenOriginal, rutaImagenCopia);
+        copiarImagenBinarioSinBuffer(rutaImagenOriginal,rutaImagenCopia);
     }
 
-    public static void copiarImagenBinario(String rutaOriginal, String rutaCopia) {
+    private static void copiarImagenBinarioSinBuffer(String rutaOriginal, String rutaCopia) {
+    	
+    	long inicio = System.currentTimeMillis(); // Inicio del tiempo
+        
+        try (
+            FileInputStream fis = new FileInputStream(rutaOriginal);
+            FileOutputStream fos = new FileOutputStream(rutaCopia)
+        ) {
+            int byteLeido;
+            
+            while ((byteLeido = fis.read()) != -1) {
+                fos.write(byteLeido); // Escribir byte a byte
+            }
+            
+            System.out.println("Copia realizada sin buffer.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        long fin = System.currentTimeMillis(); // Fin del tiempo
+        System.out.println("Tiempo tomado sin buffer: " + (fin - inicio) + " ms");
+    		
+	}
+
+	public static void copiarImagenBinario(String rutaOriginal, String rutaCopia) {
         File archivoOriginal = new File(rutaOriginal);
         File archivoCopia = new File(rutaCopia);
+        
+        long inicio = System.currentTimeMillis(); // Inicio del tiempo
+
 
         try (FileInputStream fis = new FileInputStream(archivoOriginal);
              FileOutputStream fos = new FileOutputStream(archivoCopia)) {
@@ -48,6 +76,9 @@ public class CopiarImagenBinario {
             }
 
             System.out.println("Imagen copiada correctamente en formato binario: " + archivoCopia.getAbsolutePath());
+            long fin = System.currentTimeMillis(); // Fin del tiempo
+            System.out.println("Tiempo tomado con buffer: " + (fin - inicio) + " ms");
+      
 
         } catch (IOException e) {
             e.printStackTrace();
