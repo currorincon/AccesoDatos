@@ -8,12 +8,12 @@ public class EjercicioHeeeeeelloSergio {
 
 	public static void main(String[] args) {
 
-		//jaime();
+		jaime();
 		sergio();
 
 	}
 
-	private static void jaime() {
+	private static void sergio() {
 		// Sergio Martínez del Castillo
 		
 		
@@ -90,7 +90,7 @@ public class EjercicioHeeeeeelloSergio {
 		}
 	}
 
-	private static void sergio() {
+	private static void jaime() {
 		String nombreArchivo = "src/data/archivoparaalterar.txt";
 		try {
 		
