@@ -12,12 +12,10 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 import org.w3c.dom.Element;
 
-public class leerXMLDOM {
+public class leerXML {
 	
 	public static void main(String[] args) {
 
-	
-		
 		try {
 			
 			
@@ -40,6 +38,8 @@ public class leerXMLDOM {
             System.out.println("El archivo XML se ha leído con éxito.");
             
             NodeList nList = doc.getElementsByTagName("persona");
+            
+            
             System.out.println("Número de personas: " + nList.getLength());
             
             for (int i = 0; i < nList.getLength(); i++) {
@@ -49,9 +49,8 @@ public class leerXMLDOM {
                 
                 System.out.println("Nombre: " + nombre + ", Edad: " + edad);
             }
-        } else {
-            System.out.println("El documento XML es nulo.");
-        }
+        } else
+			System.out.println("El documento XML es nulo.");
 		
 		} catch (ParserConfigurationException | SAXException | IOException e) {
 			// TODO Auto-generated catch block

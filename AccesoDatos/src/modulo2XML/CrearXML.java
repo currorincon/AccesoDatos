@@ -18,14 +18,17 @@ public class CrearXML {
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
             Document doc = docBuilder.newDocument();
+            
 
             // Crear el elemento raíz
-            Element rootElement = doc.createElement("personas");
-            doc.appendChild(rootElement);
+            Element raizPadre = doc.createElement("personas");
+         //  rootElement.setAttribute("xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance");
+         //   rootElement.setAttribute("xsi:noNamespaceSchemaLocation", "personas.xsd");
+            doc.appendChild(raizPadre);
 
             // Crear primer elemento persona
             Element persona1 = doc.createElement("persona");
-            rootElement.appendChild(persona1);
+            raizPadre.appendChild(persona1);
 
             // Añadir nombre a la primera persona
             Element nombre1 = doc.createElement("nombre");
@@ -39,7 +42,7 @@ public class CrearXML {
 
             // Crear segundo elemento persona
             Element persona2 = doc.createElement("persona");
-            rootElement.appendChild(persona2);
+            raizPadre.appendChild(persona2);
 
             // Añadir nombre a la segunda persona
             Element nombre2 = doc.createElement("nombre");
@@ -55,6 +58,20 @@ public class CrearXML {
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             transformer.setOutputProperty(javax.xml.transform.OutputKeys.INDENT, "yes");
+            
+            /*
+             *   // Definir propiedades de salida
+    transformer.setOutputProperty(javax.xml.transform.OutputKeys.ENCODING, "UTF-8");  // Codificación UTF-8
+    transformer.setOutputProperty(javax.xml.transform.OutputKeys.INDENT, "yes");  // Con indentación
+    transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");  // 4 espacios
+    transformer.setOutputProperty(javax.xml.transform.OutputKeys.OMIT_XML_DECLARATION, "no");  // Mantener declaración XML
+    transformer.setOutputProperty(javax.xml.transform.OutputKeys.STANDALONE, "yes");  // Documento standalone
+             * 
+             * 
+             * 
+             */
+            
+            
             DOMSource source = new DOMSource(doc);
             StreamResult result = new StreamResult(new File("src/data/personasCreadas.xml"));
             transformer.transform(source, result);
