@@ -1,4 +1,4 @@
-package modulo2XML;
+package modulo2XML.dom;
 
 import java.io.File;
 import java.io.IOException;

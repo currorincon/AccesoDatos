@@ -1,3 +1,0 @@
-Este es un ejemplo de uso de StringBuffer.
-Podemos añadir varias líneas de texto de manera eficiente.
-Esta cadena será guardada en el archivo: prueba.txt
