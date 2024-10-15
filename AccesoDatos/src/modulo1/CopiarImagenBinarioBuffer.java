@@ -5,20 +5,42 @@ import java.io.*;
 public class CopiarImagenBinarioBuffer {
 	
 	public static void main(String[] args) {
-        // Obtenemos la ruta del proyecto
-        String rutaProyecto = System.getProperty("user.dir");
+//        // Obtenemos la ruta del proyecto
+//        String rutaProyecto = System.getProperty("user.dir");
+//
+//       System.out.println(rutaProyecto);
+//        
+//        // Ruta de la imagen original dentro de la carpeta 'src'
+//        String rutaImagenOriginal = rutaProyecto + "/src/data/grancapitan.jpg";
+//
+//        // Ruta donde se guardará la copia de la imagen
+//        String rutaImagenCopia = rutaProyecto + "/src/data/copiaImagenBinario.jpg";
+//
+//        // Llamamos al método para copiar la imagen en binario
+//        copiarImagenBinario(rutaImagenOriginal, rutaImagenCopia);
+//        copiarImagenBinarioSinBuffer(rutaImagenOriginal,rutaImagenCopia);
+//        
+//        
+            try (FileInputStream fis = new FileInputStream("src/data/grancapitan.jpg"); // Ponemos la ruta de la imagen
+                FileOutputStream fos = new FileOutputStream("src/data/duplicate.jpg")) { // Ponemos la ruta final del archivo
 
-       System.out.println(rutaProyecto);
+                int i; // Variable para leer el archivo
+                while((i = fis.read()) != -1) { // Leemos el archivo
+                    fos.write(i); // Escribimos el archivo
+                }
+
+                
+                
+                byte[] datos = new byte[fis.available()]; // Almacenamos el tamaño del archivo
+                fis.read(datos);
+                fos.write(datos);
+
+                System.out.print("Se ha copiado el archivo");
+
+            } catch (IOException e) { // Si hay un error lo imprimimos.
+                e.printStackTrace();
+            }
         
-        // Ruta de la imagen original dentro de la carpeta 'src'
-        String rutaImagenOriginal = rutaProyecto + "/src/data/grancapitan.jpg";
-
-        // Ruta donde se guardará la copia de la imagen
-        String rutaImagenCopia = rutaProyecto + "/src/data/copiaImagenBinario.jpg";
-
-        // Llamamos al método para copiar la imagen en binario
-        copiarImagenBinario(rutaImagenOriginal, rutaImagenCopia);
-        copiarImagenBinarioSinBuffer(rutaImagenOriginal,rutaImagenCopia);
     }
 
     private static void copiarImagenBinarioSinBuffer(String rutaOriginal, String rutaCopia) {

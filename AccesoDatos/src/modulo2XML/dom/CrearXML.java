@@ -23,7 +23,7 @@ public class CrearXML {
             // Crear el elemento raíz
             Element raizPadre = doc.createElement("personas");
          //  rootElement.setAttribute("xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance");
-         //   rootElement.setAttribute("xsi:noNamespaceSchemaLocation", "personas.xsd");
+         //   rootElement.setAttribute("xsi:noNamespaceSchemaLocation", "src/data/personas.xsd");
             doc.appendChild(raizPadre);
 
             // Crear primer elemento persona

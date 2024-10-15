@@ -1,6 +1,7 @@
-package modulo2XML;
+package modulo2XML.xpath;
 
 import javax.xml.parsers.DocumentBuilderFactory;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathFactory;
@@ -9,6 +10,22 @@ import javax.xml.xpath.XPathConstants;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import java.io.File;
+
+/**
+ * 
+ *  /: El carácter de barra indica el inicio desde la raíz del documento XML.
+	//: Selecciona nodos en todo el documento, sin importar dónde se encuentren.
+	[]: Los corchetes se utilizan para aplicar condiciones o filtros.
+	Por ejemplo, [1] selecciona el primer nodo en una secuencia.
+	Las expresiones dentro de corchetes como [precio > 20] sirven para aplicar condiciones.
+	@: Se usa para seleccionar un atributo.
+	Por ejemplo, @categoria selecciona el atributo categoria de un elemento.
+	text(): Selecciona el contenido de texto de un elemento.
+	count(): Una función de XPath que cuenta el número de nodos coincidentes con la expresión.
+ * 
+ * 
+ */
+
 
 public class XPathEjemplo {
 
