@@ -72,6 +72,10 @@ public class XPathEjemplo {
 	            for (int i = 0; i < nodos.getLength(); i++) {
 	                System.out.println(nodos.item(i).getTextContent());
 	            }
+	            
+	            // //producto[precio > 50]
+	            //  count(//empleado[salario > 2000])
+
 
 	            // Ejemplo: Obtener el título del libro cuyo autor es "Ana García"
 	            String expresion2 = "/libros/libro[autor='Ana García']/titulo";

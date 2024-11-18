@@ -36,10 +36,11 @@ public class Ejercicios {
 		 * 
 		 */
 		
-		ejercicio1();
-		ejercicio2();
-		ejercicio3();
-		ejercicio4();
+		//ejercicio1();
+		//ejercicio3();
+		//ejercicio2();
+
+		//ejercicio4();
 		ejercicio5();
 	}
 
@@ -149,19 +150,19 @@ public class Ejercicios {
 	            System.out.println("Elige la canción que deseas modificar (1 a " + listaCanciones.getLength() + "): ");
 	            int index = scanner.nextInt() - 1;
 	            scanner.nextLine();  // Limpiar el buffer
-
+	            
 	            System.out.println("Introduce la nueva duración: ");
 	            String nuevaDuracion = scanner.nextLine();
 
 	            // Modificar la duración
 	            Element cancion = (Element) listaCanciones.item(index);
 	            cancion.getElementsByTagName("duracion").item(0).setTextContent(nuevaDuracion);
-
+	            cancion.setAttribute("id", "Valor");
 	            // Guardar el archivo actualizado
 	            TransformerFactory transformerFactory = TransformerFactory.newInstance();
 	            Transformer transformer = transformerFactory.newTransformer();
 	            DOMSource source = new DOMSource(doc);
-	            StreamResult result = new StreamResult(new File("canciones_modificadas.xml"));
+	            StreamResult result = new StreamResult(new File("src/data/canciones_modificadas.xml"));
 	            transformer.transform(source, result);
 
 	            System.out.println("Archivo XML modificado con éxito.");
@@ -178,7 +179,7 @@ public class Ejercicios {
 	            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 	            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 	            Document doc = dBuilder.parse(archivo);
-	            doc.getDocumentElement().normalize();
+	          //  doc.getDocumentElement().normalize();
 
 	            // Pedir al usuario los datos de la nueva canción
 	            Scanner scanner = new Scanner(System.in);
@@ -211,8 +212,10 @@ public class Ejercicios {
 	            // Guardar el archivo actualizado
 	            TransformerFactory transformerFactory = TransformerFactory.newInstance();
 	            Transformer transformer = transformerFactory.newTransformer();
+	        	transformer.setOutputProperty(javax.xml.transform.OutputKeys.INDENT, "yes");
+				transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "1");  // Indentación de 4 espacios
 	            DOMSource source = new DOMSource(doc);
-	            StreamResult result = new StreamResult(new File("canciones_actualizadas.xml"));
+	            StreamResult result = new StreamResult(new File("src/data/canciones_actualizadas.xml"));
 	            transformer.transform(source, result);
 
 	            System.out.println("Nueva canción añadida con éxito.");
@@ -225,7 +228,7 @@ public class Ejercicios {
 	private static void ejercicio5() {
 		 try {
 	            // Cargar el archivo XML
-	            File archivo = new File("canciones.xml");
+	            File archivo = new File("src/data/canciones.xml");
 	            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 	            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 	            Document doc = dBuilder.parse(archivo);
